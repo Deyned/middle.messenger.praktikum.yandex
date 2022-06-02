@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "parcel build src/index.hbs && node src/index.js",
+    "build": "parcel build src/index.hbs",
     "start": "parcel src/index.hbs --no-cache --port 3000 && parcel watch ./*"
   },
   "keywords": [],
