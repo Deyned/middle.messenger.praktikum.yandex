@@ -9,17 +9,17 @@ import ProfilePage from './pages/profile/profile';
 import './scss/index.scss';
 
 import Button from './components/button';
-// import registerComponent from './common/utils/registrComponents'
+import registerComponent from './common/utils/registrComponents'
 
 
-// registerComponent('Button', Button);
+registerComponent(Button);
 // registerComponent(Link);
 // registerComponent(Input);
 // registerComponent(Layout);
 
 document.addEventListener("DOMContentLoaded", () => {
 	
-	// const App = new ChatsPage();
+	// const app = new ChatsPage();
 	const app = new AuthPage();
 
 	renderDOM(app);

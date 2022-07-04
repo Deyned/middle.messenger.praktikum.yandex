@@ -1,6 +1,11 @@
 import Block from "../../common/classes/block";
 
 export default class AuthPage extends Block {
+	
+	auth = () => {
+		console.log(123123)
+	}
+
 	render(): string {
 		return `
 			<div class="auth">
@@ -17,8 +22,10 @@ export default class AuthPage extends Block {
 						</div>
 					</form>
 					<div class="auth__buttons">
-						{{> button label="Войти"}}
-						{{> button label="Регистрация"}}
+						{{{Button text="Войти" onClick=auth}}}
+						{{{Button text="Регистрация"}}}
+						{{!-- {{> button label="Войти"}}
+						{{> button label="Регистрация"}} --}}
 					</div>
 				</div>
 			</div>

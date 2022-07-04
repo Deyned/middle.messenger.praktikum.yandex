@@ -24,6 +24,8 @@ export default class Block {
 
 		this.props = this._makePropsProxy(props);
 
+		console.log(props, this.props)
+
     	this.eventBus = () => eventBus;
 
 		this._registerEvents(eventBus);
