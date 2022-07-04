@@ -1,18 +1,14 @@
----
-stylessheets:
-	- scss/index.scss
-title: Project
----
-{{!< layout}}
-
-<div style="display: flex; height: 100%">
-	<div style="width: 400px; display: flex; align-items: center; border-right: 1px solid gray; justify-content: center"> Заглушка для списков</div>
-	<div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-		Заглушка для чата
-		<a href="./pages/auth.hbs">Ссылка на авторизацию</a>
-		<a href="./pages/registration.hbs">Ссылка на регистрацию</a>
-		<a href="./pages/profile.hbs">Ссылка на профиль</a>
-		<a href="./pages/5xx.hbs">Ссылка на 500ые ошибки</a>
-		<a href="./pages/4xx.hbs">Ссылка на 400ые ошибки</a>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script src="https://kit.fontawesome.com/e999804026.js" crossorigin="anonymous"></script>
+    <script type="module" src="./index.ts"></script>
+</body>
+</html>
