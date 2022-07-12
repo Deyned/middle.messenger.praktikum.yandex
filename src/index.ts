@@ -8,14 +8,13 @@ import ProfilePage from './pages/profile/profile';
 
 import './scss/index.scss';
 
-import Button from './components/button';
+import Button from './components/button/button';
+import Input from './components/input/input';
 import registerComponent from './common/utils/registrComponents'
 
 
 registerComponent(Button);
-// registerComponent(Link);
-// registerComponent(Input);
-// registerComponent(Layout);
+registerComponent(Input);
 
 document.addEventListener("DOMContentLoaded", () => {
 	

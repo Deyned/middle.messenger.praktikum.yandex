@@ -1,5 +1,6 @@
 import Block from "../../common/classes/block";
 
+
 import './button.scss'
 
 interface ButtonProps {
@@ -9,7 +10,7 @@ interface ButtonProps {
 
 export default class Button extends Block {
 	constructor(props: ButtonProps) {
-		super('div', {text: props.text, click: props.onClick});
+		super('div', {text: props.text, events: {click: props.onClick}});
 	}
 
 	render(): string {

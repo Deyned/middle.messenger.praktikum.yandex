@@ -1,31 +1,74 @@
 import Block from "../../common/classes/block";
 
 export default class AuthPage extends Block {
-	
-	auth = () => {
-		console.log(123123)
+	public getStateFromProps() {
+		this.state = {
+			values: {
+				login: '',
+				password: ''
+			},
+			errors: {
+				login: '',
+				password: ''
+			},
+			auth: () => {
+				const authData = {
+					login: (this.refs.login.firstElementChild as HTMLInputElement).value,
+					password: (this.refs.password.firstElementChild as HTMLInputElement).value
+				}
+
+				const nextState = {
+					errors: {
+						login: '',
+						password: ''
+					},
+					values: { ...authData },
+				}
+
+				if(!authData.login) {
+					nextState.errors.login = 'Не заполнен логин';
+				}
+
+				if(!authData.password) {
+					nextState.errors.password = 'Не заполнен пароль'
+				}
+
+				this.setState(nextState);
+				console.log(this.state);
+			}
+		}
 	}
 
-	render(): string {
+	public render(): string {
 		return `
 			<div class="auth">
 				<div class="auth__window">
 					<h2 class="auth__label">Авторизация</h2>
 					<form class="auth__form">
 						<div class="auth__input_field">
-							<label class="auth__input_label" for="login">Логин</label>
-							<input class="auth__input" id="login" type="text">
+							{{{Input
+								ref="login"
+								id="login"
+								type="text"
+								label="Логин"
+								value="${this.state.values.login}"
+								error="${this.state.errors.login}"
+							}}}
 						</div>
 						<div class="auth__input_field">
-							<label class="auth__input_label" for="password">Пароль</label>
-							<input class="auth__input" id="password" type="password">
+						{{{Input
+							ref="password"
+							id="password"
+							type="password"
+							label="Пароль"
+							value="${this.state.values.password}"
+							error="${this.state.errors.password}"
+						}}}
 						</div>
 					</form>
 					<div class="auth__buttons">
 						{{{Button text="Войти" onClick=auth}}}
 						{{{Button text="Регистрация"}}}
-						{{!-- {{> button label="Войти"}}
-						{{> button label="Регистрация"}} --}}
 					</div>
 				</div>
 			</div>
