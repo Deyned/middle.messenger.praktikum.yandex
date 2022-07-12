@@ -13,8 +13,8 @@ export default class AuthPage extends Block {
 			},
 			auth: () => {
 				const authData = {
-					login: (this.refs.login.firstElementChild as HTMLInputElement).value,
-					password: (this.refs.password.firstElementChild as HTMLInputElement).value
+					login: (this.refs.login.querySelector('input') as HTMLInputElement).value,
+					password: (this.refs.password.querySelector('input') as HTMLInputElement).value
 				}
 
 				const nextState = {
@@ -32,7 +32,7 @@ export default class AuthPage extends Block {
 				if(!authData.password) {
 					nextState.errors.password = 'Не заполнен пароль'
 				}
-
+				
 				this.setState(nextState);
 				console.log(this.state);
 			}
@@ -46,7 +46,7 @@ export default class AuthPage extends Block {
 					<h2 class="auth__label">Авторизация</h2>
 					<form class="auth__form">
 						<div class="auth__input_field">
-							{{{Input
+							{{{ExtendedInput
 								ref="login"
 								id="login"
 								type="text"
@@ -56,7 +56,7 @@ export default class AuthPage extends Block {
 							}}}
 						</div>
 						<div class="auth__input_field">
-						{{{Input
+						{{{ExtendedInput
 							ref="password"
 							id="password"
 							type="password"

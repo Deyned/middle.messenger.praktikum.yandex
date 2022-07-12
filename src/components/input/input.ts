@@ -10,8 +10,6 @@ export enum InputTypes {
 }
 
 interface InputProps {
-	label: string;
-	error: string;
 	type: InputTypes;
 	value: string;
 	onBlur: () => void;
@@ -19,10 +17,9 @@ interface InputProps {
 }
 
 export default class Input extends Block {
+
 	constructor(props: InputProps) {
 		super('div', {
-			label: props.label,
-			error: props.error,
 			type: props.type,
 			value: props.value,
 			events: {blur: props.onBlur, focus: props.onFocus}
@@ -31,11 +28,7 @@ export default class Input extends Block {
 
 	render(): string {
 		return `
-			<div class="input">
-				<label class="input__label">{{label}}</label>
-				<input class="input__input" type="{{type}}" value="{{value}}">
-				<span class="input__error">{{error}}</span>
-			</div>
+            <input class="input" type="{{type}}" value="{{value}}">
 		`
 	}
 }

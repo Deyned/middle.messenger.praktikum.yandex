@@ -44,7 +44,7 @@ export default class Block {
 		eventBus.emit(Block.EVENTS.INIT);
 	}
 
-	_getChildren(propsAndChildren) {
+	private _getChildren(propsAndChildren) {
 		const children = {};
 		const props = {};
 

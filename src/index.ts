@@ -9,12 +9,17 @@ import ProfilePage from './pages/profile/profile';
 import './scss/index.scss';
 
 import Button from './components/button/button';
-import Input from './components/input/input';
 import registerComponent from './common/utils/registrComponents'
+import ExtendedInput from './components/extended-input/extended-input';
+import Input from './components/input/input';
+
 
 
 registerComponent(Button);
+registerComponent(ExtendedInput);
 registerComponent(Input);
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 	
