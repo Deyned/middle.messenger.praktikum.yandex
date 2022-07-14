@@ -10,7 +10,5 @@
 
 ## Прочее
 
-За основу UI взят [образец Яндекса](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link).
-
-[Ссылка на пулл реквест второго спринта](https://github.com/Deyned/middle.messenger.praktikum.yandex/pull/1).
+[Ссылка на пулл реквест второго спринта](https://github.com/Deyned/middle.messenger.praktikum.yandex/pull/2).
 
