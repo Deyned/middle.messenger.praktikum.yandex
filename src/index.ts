@@ -13,18 +13,16 @@ import registerComponent from './common/utils/registrComponents'
 import ExtendedInput from './components/extended-input/extended-input';
 import Input from './components/input/input';
 
-
-
 registerComponent(Button);
 registerComponent(ExtendedInput);
 registerComponent(Input);
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-	
+	// Раскомментировать нужную страницу, пока нет роутинга
+
 	// const app = new ChatsPage();
-	const app = new AuthPage();
+	// const app = new AuthPage();
+	const app = new RegistrationPage();
 
 	renderDOM(app);
 });

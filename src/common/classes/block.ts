@@ -115,7 +115,9 @@ export default class Block {
 	private _render() {
 		this._removeEvents();
 		const block = this.compile();
-		this._element = block.firstElementChild as HTMLElement;
+		const newElement = block.firstElementChild as HTMLElement;
+		this._element!.replaceWith(newElement);
+		this._element = newElement as HTMLElement;
 		this._addEvents();
 	}
 

@@ -41,6 +41,7 @@ export default class AuthPage extends Block {
 
 	public render(): string {
 		return `
+			{{!< layout}}
 			<div class="auth">
 				<div class="auth__window">
 					<h2 class="auth__label">Авторизация</h2>
@@ -56,14 +57,14 @@ export default class AuthPage extends Block {
 							}}}
 						</div>
 						<div class="auth__input_field">
-						{{{ExtendedInput
-							ref="password"
-							id="password"
-							type="password"
-							label="Пароль"
-							value="${this.state.values.password}"
-							error="${this.state.errors.password}"
-						}}}
+							{{{ExtendedInput
+								ref="password"
+								id="password"
+								type="password"
+								label="Пароль"
+								value="${this.state.values.password}"
+								error="${this.state.errors.password}"
+							}}}
 						</div>
 					</form>
 					<div class="auth__buttons">

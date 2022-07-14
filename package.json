@@ -20,13 +20,14 @@
     "eslint-config-handlebarlabs": "0.0.6",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "typescript": "^4.7.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
+    "eslint-config-airbnb": "^19.0.4",
     "express": "^4.18.1",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars": "^0.4.4",

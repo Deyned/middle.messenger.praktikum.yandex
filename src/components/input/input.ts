@@ -10,6 +10,7 @@ export enum InputTypes {
 }
 
 interface InputProps {
+	propId: string;
 	type: InputTypes;
 	value: string;
 	onBlur: () => void;
@@ -20,6 +21,7 @@ export default class Input extends Block {
 
 	constructor(props: InputProps) {
 		super('div', {
+			propId: props.propId,
 			type: props.type,
 			value: props.value,
 			events: {blur: props.onBlur, focus: props.onFocus}
@@ -28,7 +30,7 @@ export default class Input extends Block {
 
 	render(): string {
 		return `
-            <input class="input" type="{{type}}" value="{{value}}">
+            <input id="{{propId}}" class="input" type="{{type}}" value="{{value}}">
 		`
 	}
 }

@@ -1,13 +1,9 @@
 import Block from "../../common/classes/block";
+import { InputTypes } from "../input/input";
 import './extended-input.scss'
 
-export enum InputTypes {
-	text = 'text',
-	email = 'email',
-	password = 'password'
-}
-
 interface ExtendedInputProps {
+	propId: string;
 	label: string;
 	error: string;
 	type: InputTypes;
@@ -19,6 +15,7 @@ interface ExtendedInputProps {
 export default class ExtendedInput extends Block {
 	constructor(props: ExtendedInputProps) {
 		super('div', {
+			propId: props.propId,
 			label: props.label,
 			error: props.error,
 			type: props.type,
@@ -32,7 +29,7 @@ export default class ExtendedInput extends Block {
 		return `
 			<div class="extended_input">
 				<label class="extended_input__label">{{label}}</label>
-				{{{Input type=type value=value onBlur=blur onFocus=focus}}}
+				{{{Input propId=propId type=type value=value onBlur=blur onFocus=focus}}}
 				<span class="extended_input__error">{{error}}</span>
 			</div>
 		`;
