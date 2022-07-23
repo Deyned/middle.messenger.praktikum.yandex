@@ -1,13 +1,13 @@
-import Block from "../../common/classes/block";
+import Block from '../../common/classes/block';
 
 export default class ProfilePage extends Block {
 	profile = {
-		email: "123@yandex.ru",
-		login: "Deyned",
-		last_name: "Петров",
-		first_name: "Пётр",
-		nickname: "Мастер 339",
-		phone_number: "+7(999)345-34-21"
+		email: '123@yandex.ru',
+		login: 'Deyned',
+		last_name: 'Петров',
+		first_name: 'Пётр',
+		nickname: 'Мастер 339',
+		phone_number: '+7(999)345-34-21'
 	}
 
 	render(): string {

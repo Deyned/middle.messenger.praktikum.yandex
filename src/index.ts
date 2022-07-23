@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-unsupported-features/es-syntax, node/no-missing-import
 import renderDOM  from './common/utils/renderDOM';
 
 import AuthPage from './pages/auth/auth';
@@ -17,7 +18,7 @@ registerComponent(Button);
 registerComponent(ExtendedInput);
 registerComponent(Input);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 	// Раскомментировать нужную страницу, пока нет роутинга
 
 	// const app = new ChatsPage();

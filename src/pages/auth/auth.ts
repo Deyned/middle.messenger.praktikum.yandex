@@ -1,4 +1,4 @@
-import Block from "../../common/classes/block";
+import Block from '../../common/classes/block';
 
 export default class AuthPage extends Block {
 	public getStateFromProps() {

@@ -1,6 +1,5 @@
-import Block from "../../common/classes/block";
-import validateForm, { ValidationRule } from "../../common/utils/validator";
-import { InputTypes } from "../../components/input/input";
+import Block from '../../common/classes/block';
+import validateForm, { ValidationRule } from '../../common/utils/validator';
 
 export default class RegistrationPage extends Block {
 	public getStateFromProps() {
@@ -50,32 +49,32 @@ export default class RegistrationPage extends Block {
 					console.log(registrData);
 				}
 			},
-			onBlur: (event) => {
+			onBlur: (event: any) => {
 				if (event?.target?.id) {
 					const nextState = {
 						values: {...this.state.values},
 						errors: {...this.state.errors}
 					}
 
-					let errorText = ""
+					let errorText = ''
 
 					switch(event.target.id) {
-						case 'first_name':
-						case 'second_name':
-							errorText = validateForm(ValidationRule.Name, event?.target?.value || '');
-							break;
-						case 'phone':
-							errorText = validateForm(ValidationRule.Phone, event?.target?.value || '');
-							break;
-						case 'login':
-							errorText = validateForm(ValidationRule.Login, event?.target?.value || '');
-							break;
-						case 'password':
-							errorText = validateForm(ValidationRule.Password, event?.target?.value || '');
-							break;
-						case 'email':
-							errorText = validateForm(ValidationRule.Email, event?.target?.value || '');
-							break;
+					case 'first_name':
+					case 'second_name':
+						errorText = validateForm(ValidationRule.Name, event?.target?.value || '');
+						break;
+					case 'phone':
+						errorText = validateForm(ValidationRule.Phone, event?.target?.value || '');
+						break;
+					case 'login':
+						errorText = validateForm(ValidationRule.Login, event?.target?.value || '');
+						break;
+					case 'password':
+						errorText = validateForm(ValidationRule.Password, event?.target?.value || '');
+						break;
+					case 'email':
+						errorText = validateForm(ValidationRule.Email, event?.target?.value || '');
+						break;
 					}
 
 					nextState.errors[event.target.id] = errorText;

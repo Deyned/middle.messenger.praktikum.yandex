@@ -1,4 +1,4 @@
-import Block from "../../common/classes/block";
+import Block from '../../common/classes/block';
 
 export default class ErrorPage extends Block {
 	render(): string {
