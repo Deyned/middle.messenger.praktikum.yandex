@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build src/index.hbs --no-cache --public-url ./",
-    "start": "parcel src/index.hbs --no-cache --port 3000 && parcel watch ./*"
+    "serve": "parcel src/index.hbs --no-cache && parcel watch ./*",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
