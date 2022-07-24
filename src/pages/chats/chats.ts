@@ -13,64 +13,21 @@ export default class ChatsPage extends Block {
 						<div class="chats__left_bar__chats_list__item">
 							{{!-- TODO: Вынести в отдельный компонент --}}
 							<div class="chat_item">
-								<div style="
-									min-width:55px;
-									width:55px;
-									display: flex;
-									align-items: center;
-									justify-content: center;
-								">
-									<div style="
-										width: 45px;
-										height: 45px;
-										background-color: darkgrey;
-										border-radius: 50%;
-									">
+								<div class="chat_item__photo">
+									<div class="chat_item__photo__img">
 									</div>
 								</div>
-								<div style="
-									width: 100%;
-									padding: 3px 5px
-								">
-									<span style="
-										display: block;
-										font-weight: 700;
-									">Имя</span>
-									<span style="
-										padding-top: 3px;
-										color: gray;
-										text-overflow: ellipsis;
-										overflow: hidden;
-										display: -webkit-box;
-										-webkit-line-clamp: 2;
-										-webkit-box-orient: vertical;
-										font-size: 15px;
-									">Текст</span>
+								<div class="chat_item__message"
+								>
+									<span class="chat_item__message__name">Имя</span>
+									<span class="chat_item__message__text">Текст</span>
 								</div>
-								<div style="
-									min-width:30px;
-									width:30px;
-									display: flex;
-									flex-direction: column;
-									align-items: center;
-									justify-content: space-between;
-									padding: 3px 0;
-								">
+								<div class="chat_item__info">
 									<span style="
 										font-size: 12px;
 										color: gray;
-									">13:12</span>
-									<span style="
-										margin-bottom: 10px;
-										height: 28px;
-										width: 28px;
-										background-color: blue;
-										color: white;
-										border-radius: 50%;
-										display: flex;
-										align-items: center;
-										justify-content: center;
-									">4</span>
+									" class="chat_item__info__time">13:12</span>
+									<span class="chat_item__info__unread_count">4</span>
 								</div>
 							</div>
 						</div>

@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let app;
 
-	console.log(pathname);
-
 	switch(pathname) {
 	case '/auth':
 		app = new AuthPage();
