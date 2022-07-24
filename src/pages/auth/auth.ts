@@ -49,7 +49,7 @@ export default class AuthPage extends Block {
 						<div class="auth__input_field">
 							{{{ExtendedInput
 								ref="login"
-								id="login"
+								propId="login"
 								type="text"
 								label="Логин"
 								value="${this.state.values.login}"
@@ -59,7 +59,7 @@ export default class AuthPage extends Block {
 						<div class="auth__input_field">
 							{{{ExtendedInput
 								ref="password"
-								id="password"
+								propId="password"
 								type="password"
 								label="Пароль"
 								value="${this.state.values.password}"

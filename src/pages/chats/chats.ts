@@ -86,7 +86,6 @@ export default class ChatsPage extends Block {
 					<div class="chats__window__messages">
 						<div class="chats__window__messages__message chats__window__messages__message__message_user">Привет</div>
 						<div class="chats__window__messages__message chats__window__messages__message__message_guest">Привет</div>
-						{{{Button text="123123"}}}
 					</div>
 					<div class="chats__window__footer">
 						<i class="chats__window__footer__attach_icon fa-solid fa-paperclip"></i>

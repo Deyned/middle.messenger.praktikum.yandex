@@ -1,5 +1,5 @@
 import Block from '../../common/classes/block';
-import validateForm, { ValidationRule } from '../../common/utils/validator';
+import validateForm, { ValidationType } from '../../common/utils/validator';
 
 export default class RegistrationPage extends Block {
 	public getStateFromProps() {
@@ -33,12 +33,12 @@ export default class RegistrationPage extends Block {
 				const nextState = {
 					values: {...registrData},
 					errors: {
-						login: validateForm(ValidationRule.Login, registrData.login),
-						password: validateForm(ValidationRule.Password, registrData.password),
-						email: validateForm(ValidationRule.Email, registrData.email),
-						phone: validateForm(ValidationRule.Phone, registrData.phone),
-						first_name: validateForm(ValidationRule.Name, registrData.first_name),
-						second_name: validateForm(ValidationRule.Name, registrData.second_name),
+						login: validateForm(ValidationType.Login, registrData.login),
+						password: validateForm(ValidationType.Password, registrData.password),
+						email: validateForm(ValidationType.Email, registrData.email),
+						phone: validateForm(ValidationType.Phone, registrData.phone),
+						first_name: validateForm(ValidationType.Name, registrData.first_name),
+						second_name: validateForm(ValidationType.Name, registrData.second_name),
 					}
 				}
 
@@ -61,19 +61,19 @@ export default class RegistrationPage extends Block {
 					switch(event.target.id) {
 					case 'first_name':
 					case 'second_name':
-						errorText = validateForm(ValidationRule.Name, event?.target?.value || '');
+						errorText = validateForm(ValidationType.Name, event?.target?.value || '');
 						break;
 					case 'phone':
-						errorText = validateForm(ValidationRule.Phone, event?.target?.value || '');
+						errorText = validateForm(ValidationType.Phone, event?.target?.value || '');
 						break;
 					case 'login':
-						errorText = validateForm(ValidationRule.Login, event?.target?.value || '');
+						errorText = validateForm(ValidationType.Login, event?.target?.value || '');
 						break;
 					case 'password':
-						errorText = validateForm(ValidationRule.Password, event?.target?.value || '');
+						errorText = validateForm(ValidationType.Password, event?.target?.value || '');
 						break;
 					case 'email':
-						errorText = validateForm(ValidationRule.Email, event?.target?.value || '');
+						errorText = validateForm(ValidationType.Email, event?.target?.value || '');
 						break;
 					}
 
@@ -87,6 +87,7 @@ export default class RegistrationPage extends Block {
 	}
 
 	public render(): string {
+		const { values, errors } = this.state;
 		return `
 		{{!< layout}}
 		<div class="auth">
@@ -99,8 +100,8 @@ export default class RegistrationPage extends Block {
 							type="text"
 							label="Имя"
 							propId="first_name"
-							value="${this.state.values.first_name}"
-							error="${this.state.errors.first_name}"
+							value="${values.first_name}"
+							error="${errors.first_name}"
 							onBlur=onBlur
 						}}}
 					</div>
@@ -110,8 +111,8 @@ export default class RegistrationPage extends Block {
 							type="text"
 							label="Фамилия"
 							propId="second_name"
-							value="${this.state.values.second_name}"
-							error="${this.state.errors.second_name}"
+							value="${values.second_name}"
+							error="${errors.second_name}"
 							onBlur=onBlur
 						}}}
 					</div>
@@ -121,8 +122,8 @@ export default class RegistrationPage extends Block {
 							type="text"
 							label="Логин"
 							propId="login"
-							value="${this.state.values.login}"
-							error="${this.state.errors.login}"
+							value="${values.login}"
+							error="${errors.login}"
 							onBlur=onBlur
 						}}}
 					</div>
@@ -132,8 +133,8 @@ export default class RegistrationPage extends Block {
 							type="email"
 							label="E-mail"
 							propId="email"
-							value="${this.state.values.email}"
-							error="${this.state.errors.email}"
+							value="${values.email}"
+							error="${errors.email}"
 							onBlur=onBlur
 						}}}
 					</div>
@@ -143,8 +144,8 @@ export default class RegistrationPage extends Block {
 							type="password"
 							label="Пароль"
 							propId="password"
-							value="${this.state.values.password}"
-							error="${this.state.errors.password}"
+							value="${values.password}"
+							error="${errors.password}"
 							onBlur=onBlur
 						}}}
 					</div>
@@ -154,8 +155,8 @@ export default class RegistrationPage extends Block {
 							type="phone"
 							label="Номер телефона"
 							propId="phone"
-							value="${this.state.values.phone}"
-							error="${this.state.errors.phone}"
+							value="${values.phone}"
+							error="${errors.phone}"
 							onBlur=onBlur
 						}}}
 					</div>

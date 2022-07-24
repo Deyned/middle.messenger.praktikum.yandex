@@ -20,10 +20,26 @@ registerComponent(Input);
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Раскомментировать нужную страницу, пока нет роутинга
+	const pathname = document.location.pathname;
 
-	// const app = new ChatsPage();
-	// const app = new AuthPage();
-	const app = new RegistrationPage();
+	let app;
+
+	console.log(pathname);
+
+	switch(pathname) {
+	case '/auth':
+		app = new AuthPage();
+		break;
+	case '/registration':
+		app = new RegistrationPage();
+		break;
+	case '/': 
+		app = new ChatsPage();
+		break;
+	default: 
+		app = new ErrorPage();
+		break;
+	}
 
 	renderDOM(app);
 });
