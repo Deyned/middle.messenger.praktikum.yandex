@@ -19,11 +19,11 @@ registerComponent(ExtendedInput);
 registerComponent(Input);
 
 document.addEventListener('DOMContentLoaded', () => {
-	// Раскомментировать нужную страницу, пока нет роутинга
 	const pathname = document.location.pathname;
 
 	let app;
 
+	// Временное решение, пока нет роутинга
 	switch(pathname) {
 	case '/auth':
 		app = new AuthPage();

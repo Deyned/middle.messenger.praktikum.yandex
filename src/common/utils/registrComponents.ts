@@ -16,7 +16,7 @@ export default function registerComponent<Props>(
 		if (!data.root.refs) {
 			data.root.refs = {};
 		}
-	  
+ 
 		const { children, refs } = data.root;
 
 		const component = new Component(hash);

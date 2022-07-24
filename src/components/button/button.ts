@@ -1,4 +1,4 @@
-import Block from "../../common/classes/block";
+import Block from '../../common/classes/block';
 
 
 import './button.scss'
@@ -14,6 +14,6 @@ export default class Button extends Block {
 	}
 
 	render(): string {
-		return `<button class="btn">{{text}}</button>`
+		return '<button class="btn">{{text}}</button>';
 	}
 }
