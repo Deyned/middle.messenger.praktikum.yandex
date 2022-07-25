@@ -6,7 +6,7 @@ export default class ChatsPage extends Block {
 				{{!< layout}}
 				<div class="chats">
 				<div class="chats__left_bar">
-					<a class="chats__left_bar__profile_link" href="./profile.hbs">Профиль</a>
+					<a class="chats__left_bar__profile_link" href="./">Профиль</a>
 					<input id="search" class="chats__left_bar__search_input" type="text" placeholder="Поиск">
 					<div class="chats__left_bar__chats_list">
 						{{!-- TODO: Вынести в отдельный компонент --}}

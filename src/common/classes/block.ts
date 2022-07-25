@@ -1,16 +1,17 @@
+/* eslint-disable node/no-extraneous-import */
 import EventBus from './event-bus';
 import Handlebars from 'handlebars';
 import {v4 as makeUUID} from 'uuid';
 
 export default class Block {
 	static EVENTS = {
-		INIT: "init",
-		FLOW_CDM: "flow:component-did-mount",
-		FLOW_CDU: "flow:component-did-update",
-		FLOW_RENDER: "flow:render"
+		INIT: 'init',
+		FLOW_CDM: 'flow:component-did-mount',
+		FLOW_CDU: 'flow:component-did-update',
+		FLOW_RENDER: 'flow:render'
 	};
 
-	private _element: HTMLElement;
+	private _element!: HTMLElement;
 	private _meta: any;
 
 	public eventBus: () => EventBus;
@@ -22,7 +23,7 @@ export default class Block {
 
 	public id: string;
 
-	constructor(tagName = "div", propsAndChildren  = {}) {
+	constructor(tagName = 'div', propsAndChildren  = {}) {
 		const eventBus = new EventBus();
 		const { children, props } = this._getChildren(propsAndChildren);
 		this.children = children;
@@ -38,17 +39,17 @@ export default class Block {
 		this.props = this._makePropsProxy({...props, _id: this.id});
 		this.state = this._makePropsProxy(this.state);
 
-    	this.eventBus = () => eventBus;
+		this.eventBus = () => eventBus;
 
 		this._registerEvents(eventBus);
 		eventBus.emit(Block.EVENTS.INIT);
 	}
 
-	private _getChildren(propsAndChildren) {
-		const children = {};
-		const props = {};
+	private _getChildren(propsAndChildren: any) {
+		const children: any = {};
+		const props: any = {};
 
-		Object.entries(propsAndChildren).forEach(([key, value]) => {
+		Object.entries(propsAndChildren).forEach(([key, value] : [string, any]) => {
 			if (value instanceof Block) {
 				children[key] = value;
 			} else {
@@ -67,7 +68,7 @@ export default class Block {
 		this.getStateFromProps(props);
 	}
 
-	private _registerEvents(eventBus) {
+	private _registerEvents(eventBus: any) {
 		eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -84,28 +85,29 @@ export default class Block {
 		this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
 	}
 
-	private _componentDidMount(props) {
+	private _componentDidMount(props: any) {
 		this.componentDidMount(props);
 	}
 
-	public componentDidMount(props) {}
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	public componentDidMount(props: any) {}
 
 	public dispatchComponentDidMount() {
 		this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 	}
   
-	private _componentDidUpdate(oldProps, newProps) {
+	private _componentDidUpdate(oldProps: any, newProps: any) {
 		const response = this.componentDidUpdate(oldProps, newProps);
 
 		if (!response) {
 			return;
-	  	}
+		}
 	
 		this._render();
 	}
   
-	public componentDidUpdate(oldProps, newProps) {
-	  return true;
+	public componentDidUpdate(oldProps: any, newProps: any) {
+		return true;
 	}
 
 	public get element() {
@@ -116,7 +118,7 @@ export default class Block {
 		this._removeEvents();
 		const block = this.compile();
 		const newElement = block.firstElementChild as HTMLElement;
-		this._element!.replaceWith(newElement);
+		this._element?.replaceWith(newElement);
 		this._element = newElement as HTMLElement;
 		this._addEvents();
 	}
@@ -129,25 +131,25 @@ export default class Block {
 
 		Object.entries(this.children).forEach(([id, component]) => {
 			const stub = fragment.content.querySelector(`[data-id="${id}"]`);
-	  
+		
 			if (!stub) {
-			  return;
+				return;
 			}
-	  
+		
 			const stubChilds = stub.childNodes.length ? stub.childNodes : [];
-	  
+		
 			const content = component.getContent();
 			stub.replaceWith(content);
-	  
+		
 			const layoutContent = content.querySelector('[data-layout="1"]');
-	  
+		
 			if (layoutContent && stubChilds.length) {
-			  layoutContent.append(...stubChilds);
+				layoutContent.append(...stubChilds);
 			}
-		  });
+		});
 
 		return fragment.content;
-    }
+	}
 
 	public getContent(): HTMLElement {
 		if (this.element?.parentNode?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
@@ -158,20 +160,21 @@ export default class Block {
 			}, 100)
 		}
 	
-		return this.element!;
-	  }
+		return this.element;
+	}
 	
 	public render() {
 		return '';
 	}
 
-	private _makePropsProxy(props: any): Object {
+	private _makePropsProxy(props: any) {
+		// eslint-disable-next-line @typescript-eslint/no-this-alias
 		const self = this;
 
 		return new Proxy(props, {
 			get(target, prop) {
 				const value = target[prop];
-				return typeof value === "function" ? value.bind(target) : value;
+				return typeof value === 'function' ? value.bind(target) : value;
 			},
 			set(target, prop, value) {
 				target[prop] = value;
@@ -184,16 +187,16 @@ export default class Block {
 		}) as any
 	}
 
-	private _createDocumentElement(tagName) {
+	private _createDocumentElement(tagName: any) {
 		return document.createElement(tagName);
 	}
 
 	public show() {
-		this._element.style.display = "block";
+		this._element.style.display = 'block';
 	}
 	
 	public hide() {
-		this._element.style.display = "none";
+		this._element.style.display = 'none';
 	}
 
 	private _addEvents() {
@@ -213,17 +216,17 @@ export default class Block {
 		});
 	}
 
-	public setProps = nextProps => {
+	public setProps = (nextProps: any) => {
 		if (!nextProps) {
-		  return;
+			return;
 		}
 	
 		Object.assign(this.props, nextProps);
 	};
 
-	public setState = nextState => {
+	public setState = (nextState: any) => {
 		if (!nextState) {
-		  return;
+			return;
 		}
 	
 		Object.assign(this.state, nextState);

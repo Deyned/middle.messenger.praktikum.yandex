@@ -1,5 +1,5 @@
-import Block from "../../common/classes/block";
-import { InputTypes } from "../input/input";
+import Block from '../../common/classes/block';
+import { InputTypes } from '../input/input';
 import './extended-input.scss'
 
 interface ExtendedInputProps {

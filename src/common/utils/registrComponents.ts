@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-extraneous-import
 import Handlebars, { HelperOptions } from 'handlebars';
 import Block from '../classes/block';
 
