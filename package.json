@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "parcel build src/index.hbs --no-cache --public-url ./",
-    "start": "parcel src/index.hbs --no-cache --port 3000 && parcel watch ./*",
+    "build": "parcel build src/index.html --no-cache --public-url ./",
+    "start": "parcel src/index.html --no-cache --port 3000 && parcel watch ./*",
     "server": "node server.js",
     "lint": "npx eslint ./src",
     "lint:style": "npx stylelint ./src --custom-syntax postcss-scss"
