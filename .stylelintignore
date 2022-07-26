@@ -1,7 +1,0 @@
-node_modules
-bin
-dist
-*.hbs
-*.ts
-*.json
-
