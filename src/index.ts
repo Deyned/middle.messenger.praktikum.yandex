@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	case '/registration':
 		app = new RegistrationPage();
 		break;
+	case '/profile':
+		app = new ProfilePage();
+		break;
 	case '/': 
 		app = new ChatsPage();
 		break;
