@@ -1,0 +1,14 @@
+.extended_input {
+	display: flex;
+	flex-direction: column;
+
+	&__label {
+		color: darkgray;
+		font-size: 15px;
+	}
+
+	&__error {
+		color: red;
+		height: 15px;
+	}
+}

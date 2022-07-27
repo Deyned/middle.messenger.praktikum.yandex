@@ -1,7 +1,15 @@
 {
-  "extends": [
-    "stylelint-config-recommended-scss",
-    "stylelint-config-idiomatic-order",
-    "stylelint-config-prettier"
-  ]
+	"extends": [
+		"stylelint-config-standard"
+	],
+	"rules": {
+		"indentation": "tab",
+		"rule-empty-line-before": null,
+		"at-rule-empty-line-before": null,
+		"selector-class-pattern": null,
+		"value-no-vendor-prefix": null,
+		"font-family-no-missing-generic-family-keyword": null,
+		"selector-list-comma-newline-after": null,
+		"no-descending-specificity": null
+	}
 }
